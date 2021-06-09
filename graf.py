@@ -15,6 +15,8 @@ class Node:
         for key, value in self.neighbour.items():
             nb_names = nb_names + f' {key.name}: {value},'
         nb_names = nb_names[:-1] + ' ]'
+        if(len(self.neighbour) == 0):
+            nb_names = '[ ]'
         return f'Node {self.name}. Degree: {self.degree}. Neighbours({len(self.neighbour)}): {nb_names}'
 
 class Grafo:
@@ -65,6 +67,10 @@ class Grafo:
             return True
         except:
             return False
+    
+    def show_nodes(self):
+        for nodes in self.nodes:
+            print(nodes)
 
 def run():
     test = [[0, 4, 0, 6, 4, 0, 0, 0, 0],
@@ -78,8 +84,7 @@ def run():
             [0, 0, 0, 0, 4, 4, 0, 5, 0]]
     grp = Grafo() 
     grp.add_by_matriz(matriz=test)
-    for nodes in grp.nodes:
-        print(nodes)
+    grp.show_nodes()
 
 if __name__ == '__main__':
     run()
