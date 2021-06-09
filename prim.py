@@ -1,5 +1,5 @@
-from graf import Grafo
-from graf import Node
+from graph import Grafo
+from graph import Node
 import random
 
 def find_lowest_local_conection(actual_nodes, node):
