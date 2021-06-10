@@ -1,5 +1,6 @@
 from graph import Grafo
 from graph import Node
+from graph import input_graph
 
 class Dikjstra_Node(Node):
     def __init__(self, name):
@@ -58,5 +59,6 @@ def run():
 
 if __name__ == '__main__':
     run()
-    g = Grafo()
+    #g = Grafo()
     #input_graph(g, type_node=Dikjstra_Node)
+    #dikjstra(g, 'a', 'f')
