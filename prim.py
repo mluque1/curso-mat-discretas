@@ -1,5 +1,6 @@
 from graph import Grafo
 from graph import Node
+from graph import input_graph
 import random
 
 def find_lowest_local_conection(actual_nodes, node):
@@ -59,7 +60,9 @@ def run():
     grph.add_by_matriz(matriz=test)
     #grph.show_nodes()
     prim(grph)
-    pass
-
+    
 if __name__ == '__main__':
-    run()
+    #run()
+    g = Grafo()
+    input_graph(g)
+    prim(g)

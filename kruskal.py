@@ -75,6 +75,11 @@ def kruskal(gph):
         if not form_cicle(lightest_edge):
             kruskal_list.append(lightest_edge)
             mark_nodes(lightest_edge)
+    s = '['
+    for kl in kruskal_list:
+        s = f'{s} {kl},'
+    s = f'{s[:-1]} ]'
+    print(s)
     print(get_weight(kruskal_list))
 
 def run():
