@@ -33,8 +33,10 @@ def dikjstra(grafo, node_name_1, node_name_2):
     init_node.dij_weight = 0
     init_node.dij_secuence = node_name_1
     end_node = grafo.return_node_by_name(node_name_2)
-    while(end_node.dij_weight == float('inf')):
+    while(True):
         actual_node = search_lightest(not_visited)
+        if actual_node == end_node:
+            break
         add_new_weights(actual_node)
         not_visited.remove(actual_node)
 
@@ -58,7 +60,7 @@ def run():
     dikjstra(gph, 'a', 'f')
 
 if __name__ == '__main__':
-    run()
-    #g = Grafo()
-    #input_graph(g, type_node=Dikjstra_Node)
-    #dikjstra(g, 'a', 'f')
+    #run()
+    g = Grafo()
+    input_graph(g, type_node=Dikjstra_Node)
+    dikjstra(g, 'a', 'e')
