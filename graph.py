@@ -59,7 +59,7 @@ class Grafo:
         except:
             print(f"Something worng with the text: {text}")
 
-    def add_by_line(self, line):
+    def add_by_line(self, line, type_node=Node):
         '''
         Actual format string:\n
         {Node_Name_A}<space>{Node_Name_B}<space>{Weigth}\n
@@ -75,12 +75,12 @@ class Grafo:
             if(self.have_node_by_name(name_node_1)):
                 node1 = self.return_node_by_name(name_node_1)
             else:
-                node1 = Node(name_node_1)
+                node1 = type_node(name_node_1)
                 self.nodes.append(node1)
             if(self.have_node_by_name(name_node_2)):
                 node2 = self.return_node_by_name(name_node_2)
             else:
-                node2 = Node(name_node_2)
+                node2 = type_node(name_node_2)
                 self.nodes.append(node2)
             
             #Connect nodes
@@ -95,8 +95,8 @@ class Grafo:
     def add_node(self, new_node):
         self.nodes.append(new_node)
 
-    def new_node(self, name):
-        temp_node = Node(name)
+    def new_node(self, name, type_node=Node):
+        temp_node = type_node(name)
         self.nodes.append(temp_node)
 
     def have_node_by_name(self, name_search):
@@ -122,7 +122,7 @@ class Grafo:
         except:
             return False
 
-def input_graph(grafo):
+def input_graph(grafo, type_node=Node):
     option = '-'
     print('Command format:')
     print('{Node_Name_A}<space>{Node_Name_B}<space>{Weigth}')
@@ -130,11 +130,7 @@ def input_graph(grafo):
         option = input('Insert command (Press Enter to finish): ')
         if option == '':
             break
-        grafo.add_by_line(option)
-
-
-
-
+        grafo.add_by_line(option, type_node)
 
 def run():
     test = [[0, 4, 0, 6, 4, 0, 0, 0, 0],
@@ -151,7 +147,7 @@ def run():
     grp.show_nodes()
 
 if __name__ == '__main__':
-    if True:
+    if False:
         grp = Grafo()
         grp.add_by_line('a b 1')
         grp.add_by_line('a c 7')
@@ -160,6 +156,6 @@ if __name__ == '__main__':
         grp.show_nodes()
     else:
         grp2 = Grafo()
-        input_graph(grp2)
+        input_graph(grp2, Node)
         grp2.show_nodes()
     #run()
